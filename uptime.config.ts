@@ -7,19 +7,19 @@ import { MaintenanceConfig, PageConfig, WorkerConfig } from './types/config'
 
 const pageConfig: PageConfig = {
   // Title for your status page
-  title: "lyc8503's Status Page",
+  title: "HerobrineXiaofeng's Status Page",
   // Links shown at the header of your status page, could set `highlight` to `true`
   links: [
-    { link: 'https://github.com/lyc8503', label: 'GitHub' },
-    { link: 'https://blog.lyc8503.net/', label: 'Blog' },
-    { link: 'mailto:me@lyc8503.net', label: 'Email Me', highlight: true },
+    { link: 'https://herobrinexiaofeng.com', label: 'Blog(International)' },
+    { link: 'https://herobrinexiaofeng.cn', label: 'Blog(CN)' },
+    { link: 'https://github.com/HerobrineXiaofeng', label: 'GitHub' },
+    { link: 'mailto:me@herobrinexiaofeng.com', label: 'Email Me', highlight: true },
   ],
   // [OPTIONAL] Group your monitors
   // If not specified, all monitors will be shown in a single list
   // If specified, monitors will be grouped and ordered, not-listed monitors will be invisble (but still monitored)
   group: {
-    '🌐 Public (example group name)': ['a', 'b', 'c'],
-    '🔐 Private': ['a1'],
+    '🌐 Public': ['a', 'b', 'c'],
   },
   // [OPTIONAL] Set the path to your favicon, default to '/favicon.png' if not specified
   favicon: 'https://herobrinexiaofeng.com/2025web.png',
@@ -74,17 +74,77 @@ const workerConfig: WorkerConfig = {
       // [OPTIONAL] if true, the check will fallback to local if the specified proxy is down
       // checkProxyFallback: true,
     },
-    // Example TCP Monitor
+    // Example HTTP Monitor
     {
-      id: 'a1',
-      name: 'Example TCP Monitor',
-      // `method` should be `TCP_PING` for tcp monitors
-      method: 'TCP_PING',
-      // `target` should be `host:port` for tcp monitors
-      target: 'http://182.237.1.88:10000/',
-      tooltip: 'My production server SSH',
-      statusPageLink: 'https://example.com',
-      timeout: 5000,
+      // `id` should be unique, history will be kept if the `id` remains constant
+      id: 'b',
+      // `name` is used at status page and callback message
+      name: 'My Shop',
+      // `method` should be a valid HTTP Method
+      method: 'GET',
+      // `target` is a valid URL
+      target: 'https://shop.herobrinexiaofeng.com',
+      // [OPTIONAL] `tooltip` is ONLY used at status page to show a tooltip
+      tooltip: 'https://shop.herobrinexiaofeng.com',
+      // [OPTIONAL] `statusPageLink` is ONLY used for clickable link at status page
+      statusPageLink: 'https://shop.herobrinexiaofeng.com',
+      // [OPTIONAL] `expectedCodes` is an array of acceptable HTTP response codes, if not specified, default to 2xx
+      expectedCodes: [200],
+      // [OPTIONAL] `timeout` in millisecond, if not specified, default to 10000
+      timeout: 10000,
+      // [OPTIONAL] headers to be sent
+      headers: {
+        'User-Agent': 'Uptimeflare',
+        Authorization: 'Bearer YOUR_TOKEN_HERE',
+      },
+      // [OPTIONAL] body to be sent (require POST/PUT/PATCH method)
+      // body: 'Hello, world!',
+      // [OPTIONAL] if specified, the response must contains the keyword to be considered as operational.
+      // responseKeyword: 'success',
+      // [OPTIONAL] if specified, the response must NOT contains the keyword to be considered as operational.
+      // responseForbiddenKeyword: 'bad gateway',
+      // [OPTIONAL] if specified, will call the check proxy to check the monitor, mainly for geo-specific checks
+      // refer to docs https://github.com/lyc8503/UptimeFlare/wiki/Check-proxy-setup before setting this value
+      // currently supports `worker://`, `globalping://` and `http(s)://` proxies
+      // checkProxy: 'worker://weur',
+      // [OPTIONAL] if true, the check will fallback to local if the specified proxy is down
+      // checkProxyFallback: true,
+    },
+    // Example HTTP Monitor
+    {
+      // `id` should be unique, history will be kept if the `id` remains constant
+      id: 'c',
+      // `name` is used at status page and callback message
+      name: 'My Blog',
+      // `method` should be a valid HTTP Method
+      method: 'GET',
+      // `target` is a valid URL
+      target: 'https://herobrinexiaofeng.cn',
+      // [OPTIONAL] `tooltip` is ONLY used at status page to show a tooltip
+      tooltip: 'https://herobrinexiaofeng.cn',
+      // [OPTIONAL] `statusPageLink` is ONLY used for clickable link at status page
+      statusPageLink: 'https://herobrinexiaofeng.cn',
+      // [OPTIONAL] `expectedCodes` is an array of acceptable HTTP response codes, if not specified, default to 2xx
+      expectedCodes: [200],
+      // [OPTIONAL] `timeout` in millisecond, if not specified, default to 10000
+      timeout: 10000,
+      // [OPTIONAL] headers to be sent
+      headers: {
+        'User-Agent': 'Uptimeflare',
+        Authorization: 'Bearer YOUR_TOKEN_HERE',
+      },
+      // [OPTIONAL] body to be sent (require POST/PUT/PATCH method)
+      // body: 'Hello, world!',
+      // [OPTIONAL] if specified, the response must contains the keyword to be considered as operational.
+      // responseKeyword: 'success',
+      // [OPTIONAL] if specified, the response must NOT contains the keyword to be considered as operational.
+      // responseForbiddenKeyword: 'bad gateway',
+      // [OPTIONAL] if specified, will call the check proxy to check the monitor, mainly for geo-specific checks
+      // refer to docs https://github.com/lyc8503/UptimeFlare/wiki/Check-proxy-setup before setting this value
+      // currently supports `worker://`, `globalping://` and `http(s)://` proxies
+      // checkProxy: 'worker://weur',
+      // [OPTIONAL] if true, the check will fallback to local if the specified proxy is down
+      // checkProxyFallback: true,
     },
   ],
   // [Optional] Notification settings
