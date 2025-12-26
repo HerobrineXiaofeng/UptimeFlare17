@@ -14,6 +14,25 @@ const pageConfig: PageConfig = {
     { link: 'https://blog.lyc8503.net/', label: 'Blog' },
     { link: 'mailto:me@lyc8503.net', label: 'Email Me', highlight: true },
   ],
+  // [OPTIONAL] Group your monitors
+  // If not specified, all monitors will be shown in a single list
+  // If specified, monitors will be grouped and ordered, not-listed monitors will be invisble (but still monitored)
+  group: {
+    '🌐 Public (example group name)': ['a', 'b', 'c'],
+    '🔐 Private': ['a1'],
+  },
+  // [OPTIONAL] Set the path to your favicon, default to '/favicon.png' if not specified
+  favicon: 'https://herobrinexiaofeng.com/2025web.png',
+  // [OPTIONAL] Set the path to your logo, default to '/logo.svg' if not specified
+  // logo: 'https://example.com/logo.svg',
+  // [OPTIONAL] Maintenance related settings
+  maintenances: {
+    // [OPTIONAL] The color of upcoming maintenance alerts, default to 'gray'
+    // Active alerts will always use the color specified in the MaintenanceConfig
+    upcomingColor: 'gray',
+  },
+  // [OPTIONAL] Custom footer html
+  // customFooter: '',
 }
 
 const workerConfig: WorkerConfig = {
@@ -24,7 +43,7 @@ const workerConfig: WorkerConfig = {
       // `id` should be unique, history will be kept if the `id` remains constant
       id: 'a',
       // `name` is used at status page and callback message
-      name: 'My API Monitor',
+      name: 'My Blog',
       // `method` should be a valid HTTP Method
       method: 'GET',
       // `target` is a valid URL
@@ -57,12 +76,12 @@ const workerConfig: WorkerConfig = {
     },
     // Example TCP Monitor
     {
-      id: 'test_tcp_monitor',
+      id: 'a1',
       name: 'Example TCP Monitor',
       // `method` should be `TCP_PING` for tcp monitors
       method: 'TCP_PING',
       // `target` should be `host:port` for tcp monitors
-      target: '1.2.3.4:22',
+      target: 'http://182.237.1.88:10000/',
       tooltip: 'My production server SSH',
       statusPageLink: 'https://example.com',
       timeout: 5000,
@@ -74,7 +93,7 @@ const workerConfig: WorkerConfig = {
     // More info at Wiki: https://github.com/lyc8503/UptimeFlare/wiki/Setup-notification
     webhook: {
       // [Required] webhook URL (example: Telegram Bot API)
-      url: 'https://api.telegram.org/bot123456:ABCDEF/sendMessage',
+      url: 'https://api.telegram.org/bot8509781074:AAE6vlc4MHgw79S2AvHlXOxwcHqid6sYXxI/sendMessage',
       // [Optional] HTTP method, default to 'GET' for payloadType=param, 'POST' otherwise
       // method: 'POST',
       // [Optional] headers to be sent
@@ -90,7 +109,7 @@ const workerConfig: WorkerConfig = {
       // [Required] payload to be sent
       // $MSG will be replaced with the human-readable notification message
       payload: {
-        chat_id: 12345678,
+        chat_id: 7672554369,
         text: '$MSG',
       },
       // [Optional] timeout calling this webhook, in millisecond, default to 5000
@@ -121,7 +140,7 @@ const maintenances: MaintenanceConfig[] = [
     // Description of the maintenance, will be shown at status page
     body: 'This is a test maintenance, server software upgrade',
     // Start time of the maintenance, in UNIX timestamp or ISO 8601 format
-    start: '2020-01-01T00:00:00+08:00',
+    start: '2029-01-01T00:00:00+08:00',
     // [Optional] end time of the maintenance, in UNIX timestamp or ISO 8601 format
     // if not specified, the maintenance will be considered as on-going
     end: '2050-01-01T00:00:00+08:00',
