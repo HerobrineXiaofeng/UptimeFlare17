@@ -13,13 +13,13 @@ const pageConfig: PageConfig = {
     { link: 'https://herobrinexiaofeng.com', label: '博客（国际）' },
     { link: 'https://herobrinexiaofeng.cn', label: '博客（中国）' },
     { link: 'https://github.com/HerobrineXiaofeng', label: 'GitHub' },
-    { link: 'mailto:me@herobrinexiaofeng.com', label: 'Email Me', highlight: true },
+    { link: 'mailto:me@herobrinexiaofeng.com', label: '给我发邮件', highlight: true },
   ],
   // [OPTIONAL] Group your monitors
   // If not specified, all monitors will be shown in a single list
   // If specified, monitors will be grouped and ordered, not-listed monitors will be invisble (but still monitored)
   group: {
-    '🌐 Public': ['a', 'b', 'c'],
+    '🌐 Public': ['a', 'b', 'c', 'd', 'e'],
   },
   // [OPTIONAL] Set the path to your favicon, default to '/favicon.png' if not specified
   favicon: 'https://herobrinexiaofeng.com/2025web.png',
@@ -124,6 +124,78 @@ const workerConfig: WorkerConfig = {
       tooltip: 'https://herobrinexiaofeng.cn',
       // [OPTIONAL] `statusPageLink` is ONLY used for clickable link at status page
       statusPageLink: 'https://herobrinexiaofeng.cn',
+      // [OPTIONAL] `expectedCodes` is an array of acceptable HTTP response codes, if not specified, default to 2xx
+      expectedCodes: [200],
+      // [OPTIONAL] `timeout` in millisecond, if not specified, default to 10000
+      timeout: 10000,
+      // [OPTIONAL] headers to be sent
+      headers: {
+        'User-Agent': 'Uptimeflare',
+        Authorization: 'Bearer YOUR_TOKEN_HERE',
+      },
+      // [OPTIONAL] body to be sent (require POST/PUT/PATCH method)
+      // body: 'Hello, world!',
+      // [OPTIONAL] if specified, the response must contains the keyword to be considered as operational.
+      // responseKeyword: 'success',
+      // [OPTIONAL] if specified, the response must NOT contains the keyword to be considered as operational.
+      // responseForbiddenKeyword: 'bad gateway',
+      // [OPTIONAL] if specified, will call the check proxy to check the monitor, mainly for geo-specific checks
+      // refer to docs https://github.com/lyc8503/UptimeFlare/wiki/Check-proxy-setup before setting this value
+      // currently supports `worker://`, `globalping://` and `http(s)://` proxies
+      // checkProxy: 'worker://weur',
+      // [OPTIONAL] if true, the check will fallback to local if the specified proxy is down
+      // checkProxyFallback: true,
+    },
+    // Example HTTP Monitor
+    {
+      // `id` should be unique, history will be kept if the `id` remains constant
+      id: 'd',
+      // `name` is used at status page and callback message
+      name: '我的博客（国际）',
+      // `method` should be a valid HTTP Method
+      method: 'GET',
+      // `target` is a valid URL
+      target: 'https://232800.xyz',
+      // [OPTIONAL] `tooltip` is ONLY used at status page to show a tooltip
+      tooltip: 'https://232800.xyz',
+      // [OPTIONAL] `statusPageLink` is ONLY used for clickable link at status page
+      statusPageLink: 'https://232800.xyz',
+      // [OPTIONAL] `expectedCodes` is an array of acceptable HTTP response codes, if not specified, default to 2xx
+      expectedCodes: [200],
+      // [OPTIONAL] `timeout` in millisecond, if not specified, default to 10000
+      timeout: 10000,
+      // [OPTIONAL] headers to be sent
+      headers: {
+        'User-Agent': 'Uptimeflare',
+        Authorization: 'Bearer YOUR_TOKEN_HERE',
+      },
+      // [OPTIONAL] body to be sent (require POST/PUT/PATCH method)
+      // body: 'Hello, world!',
+      // [OPTIONAL] if specified, the response must contains the keyword to be considered as operational.
+      // responseKeyword: 'success',
+      // [OPTIONAL] if specified, the response must NOT contains the keyword to be considered as operational.
+      // responseForbiddenKeyword: 'bad gateway',
+      // [OPTIONAL] if specified, will call the check proxy to check the monitor, mainly for geo-specific checks
+      // refer to docs https://github.com/lyc8503/UptimeFlare/wiki/Check-proxy-setup before setting this value
+      // currently supports `worker://`, `globalping://` and `http(s)://` proxies
+      // checkProxy: 'worker://weur',
+      // [OPTIONAL] if true, the check will fallback to local if the specified proxy is down
+      // checkProxyFallback: true,
+    },
+    // Example HTTP Monitor
+    {
+      // `id` should be unique, history will be kept if the `id` remains constant
+      id: 'e',
+      // `name` is used at status page and callback message
+      name: '我的博客（中国）',
+      // `method` should be a valid HTTP Method
+      method: 'GET',
+      // `target` is a valid URL
+      target: 'https://159265123.xyz',
+      // [OPTIONAL] `tooltip` is ONLY used at status page to show a tooltip
+      tooltip: 'https://159265123.xyz',
+      // [OPTIONAL] `statusPageLink` is ONLY used for clickable link at status page
+      statusPageLink: 'https://159265123.xyz',
       // [OPTIONAL] `expectedCodes` is an array of acceptable HTTP response codes, if not specified, default to 2xx
       expectedCodes: [200],
       // [OPTIONAL] `timeout` in millisecond, if not specified, default to 10000
