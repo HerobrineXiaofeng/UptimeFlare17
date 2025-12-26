@@ -10,8 +10,8 @@ const pageConfig: PageConfig = {
   title: "HerobrineXiaofeng's Status Page",
   // Links shown at the header of your status page, could set `highlight` to `true`
   links: [
-    { link: 'https://herobrinexiaofeng.com', label: 'Blog(International)' },
-    { link: 'https://herobrinexiaofeng.cn', label: 'Blog(CN)' },
+    { link: 'https://herobrinexiaofeng.com', label: '博客（国际）' },
+    { link: 'https://herobrinexiaofeng.cn', label: '博客（中国）' },
     { link: 'https://github.com/HerobrineXiaofeng', label: 'GitHub' },
     { link: 'mailto:me@herobrinexiaofeng.com', label: 'Email Me', highlight: true },
   ],
@@ -43,7 +43,7 @@ const workerConfig: WorkerConfig = {
       // `id` should be unique, history will be kept if the `id` remains constant
       id: 'a',
       // `name` is used at status page and callback message
-      name: 'My Blog',
+      name: '我的博客（国际）',
       // `method` should be a valid HTTP Method
       method: 'GET',
       // `target` is a valid URL
@@ -79,7 +79,7 @@ const workerConfig: WorkerConfig = {
       // `id` should be unique, history will be kept if the `id` remains constant
       id: 'b',
       // `name` is used at status page and callback message
-      name: 'My Shop',
+      name: '我的商店',
       // `method` should be a valid HTTP Method
       method: 'GET',
       // `target` is a valid URL
@@ -115,7 +115,7 @@ const workerConfig: WorkerConfig = {
       // `id` should be unique, history will be kept if the `id` remains constant
       id: 'c',
       // `name` is used at status page and callback message
-      name: 'My Blog',
+      name: '我的博客（中国）',
       // `method` should be a valid HTTP Method
       method: 'GET',
       // `target` is a valid URL
@@ -200,10 +200,10 @@ const maintenances: MaintenanceConfig[] = [
     // Description of the maintenance, will be shown at status page
     body: 'This is a test maintenance, server software upgrade',
     // Start time of the maintenance, in UNIX timestamp or ISO 8601 format
-    start: '2029-01-01T00:00:00+08:00',
+    start: '2025-01-01T00:00:00+08:00',
     // [Optional] end time of the maintenance, in UNIX timestamp or ISO 8601 format
     // if not specified, the maintenance will be considered as on-going
-    end: '2050-01-01T00:00:00+08:00',
+    end: '2025-11-12T23:59:59+08:00',
     // [Optional] color of the maintenance alert at status page, default to "yellow"
     color: 'blue',
   },
